@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Última Oportunidade: Garanta o SemioLab com desconto especial de R$ 27,90.">
+  <title>Última Chance — SemioLab com Desconto Exclusivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #040816;
+      --bg2: #091534;
+      --navy: #10224a;
+      --surface: #112145;
+      --surface2: #183267;
+      --gold: #f0b84c;
+      --gold2: #ffe88b;
+      --gold3: #b57912;
+      --text: #fff9ee;
+      --muted: #decfb3;
+      --soft: #b7c5e3;
+      --stroke: rgba(255, 232, 139, 0.24);
+      --green: #29d466;
+      --green-dark: #12b352;
+      --red: #ef4444;
+      --red-soft: #f87171;
+      --cyan: #20e6dc;
+      --font-display: 'Instrument Serif', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(1040px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .container-sm {
+      width: min(780px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    /* Top Warning Bar */
+    .top-warning-bar {
+      background: linear-gradient(90deg, #7f1d1d, #991b1b, #7f1d1d);
+      border-bottom: 1px solid rgba(248, 113, 113, 0.4);
+      padding: 0.9rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    .warning-msg {
+      font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+      font-weight: 900;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      letter-spacing: 0.02em;
+    }
+
+    .warning-msg .pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fef08a;
+      box-shadow: 0 0 12px #fef08a;
+      animation: blink 1.2s infinite ease-in-out;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* Hero Section */
+    .downsell-hero {
+      padding: 3.5rem 0 3rem;
+      text-align: center;
+      position: relative;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(239, 68, 68, 0.16), transparent 48%),
+        radial-gradient(circle at 20% 60%, rgba(240, 184, 76, 0.12), transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(32, 230, 220, 0.08), transparent 40%),
+        linear-gradient(180deg, #040816 0%, #091534 100%);
+      border-bottom: 1px solid rgba(255, 232, 139, 0.12);
+    }
+
+    .downsell-hero:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 85%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+      color: #f87171;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .eyebrow:before, .eyebrow:after {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #f87171);
+    }
+
+    .eyebrow:after {
+      background: linear-gradient(90deg, #f87171, transparent);
+    }
+
+    .badge-wait {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      background: linear-gradient(180deg, rgba(239, 68, 68, 0.18), rgba(220, 38, 38, 0.08));
+      color: #fca5a5;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15);
+    }
+
+    h1, h2, h3 {
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      color: #ffffff;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      margin-bottom: 1.2rem;
+      text-wrap: balance;
+    }
+
+    .hero-title em {
+      font-family: var(--font-display);
+      font-weight: 400;
+      color: var(--gold2);
+      font-style: italic;
+      text-shadow: 0 0 28px rgba(214, 168, 79, 0.35);
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+      color: #e2e8f0;
+      max-width: 720px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.7;
+    }
+
+    /* Explanation Card */
+    .empathy-card {
+      background: linear-gradient(180deg, rgba(17, 33, 69, 0.85), rgba(9, 21, 52, 0.95));
+      border: 1px solid rgba(255, 232, 139, 0.25);
+      border-radius: 1.8rem;
+      padding: 2.2rem;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      margin: 2rem auto;
+      text-align: left;
+      position: relative;
+    }
+
+    .empathy-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold2), transparent);
+    }
+
+    .empathy-card p {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 1.2rem;
+    }
+
+    .empathy-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .empathy-card strong {
+      color: #fff;
+    }
+
+    .highlight-quote {
+      background: rgba(240, 184, 76, 0.1);
+      border-left: 4px solid var(--gold);
+      padding: 1.1rem 1.4rem;
+      border-radius: 0 1rem 1rem 0;
+      margin: 1.5rem 0;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    /* Resumo dos Benefícios Inclusos */
+    .recap-section {
+      padding: 4.5rem 0;
+      background: #040816;
+    }
+
+    .recap-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+      margin-bottom: 0.8rem;
+    }
+
+    .recap-sub {
+      text-align: center;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-size: 1rem;
+    }
+
+    .benefits-list-card {
+      background: linear-gradient(160deg, #0e1a38 0%, #060b18 100%);
+      border: 1px solid rgba(32, 230, 220, 0.3);
+      border-radius: 1.8rem;
+      padding: 2.2rem;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.1rem;
+    }
+
+    .benefit-row {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      transition: all 0.2s ease;
+    }
+
+    .benefit-row:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 232, 139, 0.3);
+      transform: translateX(4px);
+    }
+
+    .benefit-row .icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-row .text strong {
+      display: block;
+      color: #fff;
+      font-size: 0.98rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .benefit-row .text span {
+      display: block;
+      color: var(--soft);
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    /* Caixa de Preço Downsell */
+    .downsell-box-wrapper {
+      background: linear-gradient(180deg, #101827 0%, #060914 100%);
+      border: 2px solid rgba(41, 212, 102, 0.5);
+      border-radius: 2.2rem;
+      padding: 3rem 2rem;
+      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.7), 0 0 50px rgba(41, 212, 102, 0.18);
+      position: relative;
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .downsell-badge {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      color: #ffffff;
+      padding: 0.45rem 1.6rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+      white-space: nowrap;
+    }
+
+    /* Tabela Comparativa de Preços */
+    .price-compare-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 1.5rem 0 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .old-price-pill {
+      color: #94a3b8;
+      font-size: 1.05rem;
+    }
+
+    .old-price-pill span {
+      text-decoration: line-through;
+      color: #f87171;
+      font-weight: 800;
+    }
+
+    .arrow-icon {
+      color: var(--gold);
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .price-final-callout {
+      color: #4ade80;
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    .price-hero {
+      font-size: clamp(3.4rem, 10vw, 5.6rem);
+      font-weight: 950;
+      color: #ffffff;
+      line-height: 1;
+      margin: 0.3rem 0;
+      letter-spacing: -0.05em;
+      text-shadow: 0 0 35px rgba(41, 212, 102, 0.35);
+    }
+
+    .price-hero small {
+      font-size: 0.42em;
+      vertical-align: top;
+      color: var(--green);
+      margin-right: 0.2rem;
+    }
+
+    .one-time-badge {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #86efac;
+      padding: 0.38rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+
+    /* Botão */
+    .btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 999px;
+      padding: 1.25rem 2.2rem;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.28s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+    }
+
+    .btn-green {
+      background: linear-gradient(90deg, #29d466 0%, #12b352 100%);
+      color: #ffffff;
+      box-shadow: 0 18px 45px rgba(34, 197, 94, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    }
+
+    .btn-green:hover {
+      box-shadow: 0 24px 55px rgba(34, 197, 94, 0.58), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+    }
+
+    .btn-main-text {
+      font-size: clamp(1.05rem, 2.8vw, 1.28rem);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .btn-sub-text {
+      font-size: 0.88rem;
+      font-weight: 500;
+      opacity: 0.95;
+      margin-top: 0.3rem;
+    }
+
+    .btn-pulse {
+      animation: pulseBtn 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); box-shadow: 0 18px 45px rgba(34, 197, 94, 0.42); }
+      50% { transform: scale(1.025); box-shadow: 0 18px 55px rgba(34, 197, 94, 0.7), 0 0 0 12px rgba(41, 212, 102, 0); }
+    }
+
+    .decline-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: #8c9cb8;
+      text-decoration: underline;
+      font-size: 0.92rem;
+      transition: color 0.2s ease;
+      cursor: pointer;
+      text-underline-offset: 4px;
+      line-height: 1.5;
+      max-width: 540px;
+    }
+
+    .decline-link:hover {
+      color: #cbd5e1;
+    }
+
+    .delivery-badge-img {
+      max-width: 360px;
+      width: 100%;
+      margin: 1.8rem auto 0;
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.84rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #02050e;
+    }
+
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      .price-compare-strip {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .arrow-icon {
+        display: none;
+      }
+      .downsell-box-wrapper {
+        padding: 2.5rem 1.2rem;
+      }
+      .empathy-card {
+        padding: 1.5rem;
+      }
+      .benefits-list-card {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra Superior de Aviso Final -->
+  <div class="top-warning-bar">
+    <div class="warning-msg">
+      <span class="pulse-dot"></span>
+      <span>⚠️ ESPERE! NÃO FECHE ESTA PÁGINA — ÚLTIMA CHANCE DE LEVAR O SEMIOLAB</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="downsell-hero">
+    <div class="container">
+      <div class="eyebrow">CONDIÇÃO ESPECIAL DE DESPEDIDA</div>
+
+      <div style="text-align: center;">
+        <span class="badge-wait">⏳ Não queremos que você fique sem treinar</span>
+      </div>
+
+      <h1 class="hero-title">
+        Entendemos que talvez não fosse o momento...<br>
+        <em>Mas você realmente quer encarar um paciente real sem treinar antes?</em>
+      </h1>
+
+      <p class="lead-text">
+        Se o motivo para você não ter adicionado o SemioLab foi o valor, nós resolvemos isso agora.<br>
+        <strong>Liberamos a condição final de R$ 27,90 para você não abrir mão da sua prática clínica.</strong>
+      </p>
+
+      <!-- Card de Empatia e Contexto -->
+      <div class="container-sm">
+        <div class="empathy-card">
+          <p>
+            Sabemos como a faculdade e o dia a dia são exigentes. Porém, quando você estiver no ambulatório, na enfermaria ou em uma prova prática (OSCE), <strong>ninguém vai te perguntar apenas conceitos teóricos decorados</strong>.
+          </p>
+
+          <p>
+            Vão colocar um paciente na sua frente e você terá que saber exatamente o que perguntar na anamnese, o que palpar, quais sons auscultar e qual hipótese diagnóstica formular.
+          </p>
+
+          <div class="highlight-quote">
+            🩺 O SemioLab não é mais uma teoria. É o simulador que te dá a segurança de já ter atendido aquele caso antes de precisar fazer isso sob pressão.
+          </div>
+
+          <p>
+            Por acreditar que essa prática faz total diferença na sua formação, decidimos liberar um <strong>desconto final e irrecusável</strong> para você entrar hoje.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Resumo do que está incluso -->
+  <section class="recap-section">
+    <div class="container-sm">
+      <h2 class="recap-title">O Que Você Leva no SemioLab Por Esse Valor:</h2>
+      <p class="recap-sub">
+        O mesmo acesso completo. A mesma plataforma interativa. Com desconto máximo.
+      </p>
+
+      <div class="benefits-list-card">
+        <div class="benefits-grid">
+          <div class="benefit-row">
+            <span class="icon">🧑‍⚕️</span>
+            <div class="text">
+              <strong>Pacientes Simulados</strong>
+              <span>Converse e colha anamnese em tempo real</span>
+            </div>
+          </div>
+
+          <div class="benefit-row">
+            <span class="icon">🩺</span>
+            <div class="text">
+              <strong>Exame Físico Interativo</strong>
+              <span>Sinais vitais e achados clínicos detalhados</span>
+            </div>
+          </div>
+
+          <div class="benefit-row">
+            <span class="icon">🔊</span>
+            <div class="text">
+              <strong>Sons Reais de Ausculta</strong>
+              <span>Treine seu ouvido para sopros, estertores e mais</span>
+            </div>
+          </div>
+
+          <div class="benefit-row">
+            <span class="icon">🩻</span>
+            <div class="text">
+              <strong>Exames e Radiografias</strong>
+              <span>Solicite e interprete imagens clínicas</span>
+            </div>
+          </div>
+
+          <div class="benefit-row">
+            <span class="icon">🧠</span>
+            <div class="text">
+              <strong>Raciocínio Clínico Guiado</strong>
+              <span>Construa hipóteses diagnósticas sem medo</span>
+            </div>
+          </div>
+
+          <div class="benefit-row">
+            <span class="icon">🎯</span>
+            <div class="text">
+              <strong>Simulados e Quizzes</strong>
+              <span>Avalie seu nível de prontidão imediatamente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Caixa de Preço do Downsell -->
+  <section class="section" style="padding-top: 1rem; padding-bottom: 5rem;">
+    <div class="container-sm">
+
+      <div class="downsell-box-wrapper">
+        <div class="downsell-badge">🔥 ÚLTIMA TENTATIVA • MENOR PREÇO HISTÓRICO</div>
+
+        <div class="price-compare-strip">
+          <div class="old-price-pill">Preço Normal: <span>R$ 97,00</span></div>
+          <span class="arrow-icon">→</span>
+          <div class="old-price-pill">Página Anterior: <span>R$ 47,90</span></div>
+        </div>
+
+        <div class="price-final-callout">LEVE TUDO NESTA PÁGINA POR APENAS:</div>
+        <div class="price-hero">
+          <small>R$</small>27,90
+        </div>
+        <div class="one-time-badge">Pagamento único • Acesso imediato</div>
+
+        <p style="color: #cbd5e1; font-size: 1.05rem; max-width: 580px; margin: 0 auto 1.8rem; line-height: 1.6;">
+          Essa é a sua última chance de adquirir o simulador prático do SemioLab por esse valor simbólico. Esta oferta não será exibida novamente após você fechar ou sair.
+        </p>
+
+        <!-- CTA Principal do Downsell -->
+        <a href="https://pay.hotmart.com/E107509325C?off=lkjqy2ye" class="btn btn-green btn-pulse downsell-accept-btn" id="downsellAcceptBtn">
+          <span class="btn-main-text">🟢 SIM! QUERO O SEMIOLAB POR APENAS R$ 27,90</span>
+          <span class="btn-sub-text">Aproveitar desconto final de R$ 27,90</span>
+        </a>
+
+        <!-- Link de Recusa Definitiva -->
+        <div>
+          <a href="#obrigado" class="decline-link" id="downsellDeclineBtn">
+            Não, obrigado. Prefiro abrir mão definitivamente do SemioLab e continuar apenas com o material teórico.
+          </a>
+        </div>
+
+        <!-- Imagem de entrega WhatsApp / E-mail -->
+        <img src="images/7vjcHG3.png" alt="Recebimento imediato no WhatsApp e e-mail" class="delivery-badge-img">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© Semiologia Médica — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script simples para configurar o link de checkout do Downsell -->
+  <script>
+    (function(){
+      // CONFIGURE AQUI OS LINKS DO SEU DOWNSELL:
+      // 1. Link de Checkout do SemioLab por R$ 27,90 (Hotmart):
+      const downsellCheckoutUrl = 'https://pay.hotmart.com/E107509325C?off=lkjqy2ye'; 
+
+      // 2. Link de Redirecionamento caso recuse (Página de obrigado ou entrega):
+      const thankYouPageUrl = '#obrigado';
+
+      const acceptBtn = document.getElementById('downsellAcceptBtn');
+      const declineBtn = document.getElementById('downsellDeclineBtn');
+
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function(e){
+          if (downsellCheckoutUrl && downsellCheckoutUrl !== 'https://pay.hotmart.com/SEU_CODIGO_DE_DOWNSELL_AQUI' && downsellCheckoutUrl !== '#checkout-downsell') {
+            e.preventDefault();
+            window.location.href = downsellCheckoutUrl;
+          }
+        });
+      }
+
+      if (declineBtn) {
+        declineBtn.addEventListener('click', function(e){
+          if (thankYouPageUrl && thankYouPageUrl !== '#obrigado') {
+            e.preventDefault();
+            window.location.href = thankYouPageUrl;
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
