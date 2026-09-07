@@ -4,6 +4,6 @@
     { "source": "/upsell", "destination": "/upsell.html" },
     { "source": "/downsell", "destination": "/downsell.html" },
     { "source": "/obrigado", "destination": "/obrigado.html" },
-    { "source": "/obrigado-semiolab", "destination": "/obrigado-semiolab.html" }
+    { "source": "/obrigado-semiolab", "destination": "/obrigado.html" }
   ]
 }
