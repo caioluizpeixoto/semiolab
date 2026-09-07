@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/upsell", "destination": "/upsell.html" },
+    { "source": "/downsell", "destination": "/downsell.html" }
+  ]
+}
