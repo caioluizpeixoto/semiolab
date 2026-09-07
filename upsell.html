@@ -180,8 +180,8 @@
     }
 
     .hero-mockup-wrapper {
-      width: min(100%, 780px);
-      margin: 1.8rem auto 2.2rem;
+      width: min(100%, 640px);
+      margin: 1.5rem auto 2rem;
       position: relative;
       display: flex;
       justify-content: center;
@@ -191,22 +191,22 @@
     .hero-mockup-wrapper:before {
       content: '';
       position: absolute;
-      width: 90%;
-      height: 75%;
-      background: radial-gradient(ellipse at center, rgba(32, 230, 220, 0.22), rgba(240, 184, 76, 0.12) 50%, transparent 75%);
-      filter: blur(40px);
+      width: 80%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(32, 230, 220, 0.28), rgba(240, 184, 76, 0.15) 50%, transparent 75%);
+      filter: blur(45px);
       pointer-events: none;
       z-index: 1;
     }
 
     .hero-mockup-img {
       width: 100%;
+      max-width: 580px;
       height: auto;
       display: block;
       position: relative;
       z-index: 2;
-      filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.65));
-      border-radius: 1.2rem;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75));
     }
 
     /* Botões */
@@ -949,7 +949,7 @@
 
       <!-- Mockup do SemioLab nos Dispositivos -->
       <div class="hero-mockup-wrapper">
-        <img src="images/semiolab-app-mockup.jpg" alt="Simulador de Casos Clínicos SemioLab no celular" class="hero-mockup-img" loading="eager">
+        <img src="images/semiolab-app-mockup.png" alt="Simulador de Casos Clínicos SemioLab no celular" class="hero-mockup-img" loading="eager">
       </div>
 
       <p class="lead-text">
@@ -1326,11 +1326,9 @@
           ⚡ E seu acesso é liberado junto com seu material.
         </p>
 
-        <!-- CTA Principal -->
-        <a href="https://pay.hotmart.com/E107509325C?off=oeh7ywy8" class="btn btn-green btn-pulse upsell-accept-btn" id="upsellAcceptBtn1">
-          <span class="btn-main-text">🟢 SIM! QUERO ADICIONAR O SEMIOLAB POR R$ 47,90</span>
-          <span class="btn-sub-text">Quero estudar + praticar Semiologia</span>
-        </a>
+        <!-- HOTMART - Sales Funnel Widget (1-Clique) -->
+        <!--- sales funnel container --->
+        <div id="hotmart-sales-funnel" style="margin: 1.5rem auto; min-height: 80px;"></div>
 
         <!-- Aviso Importante -->
         <div class="warning-note-box">
@@ -1349,18 +1347,6 @@
           </p>
         </div>
 
-        <!-- Segundo Botão de Ação -->
-        <a href="https://pay.hotmart.com/E107509325C?off=oeh7ywy8" class="btn btn-green upsell-accept-btn" id="upsellAcceptBtn2" style="margin-top: 0.5rem;">
-          <span class="btn-main-text">🟢 QUERO TREINAR NO SEMIOLAB POR R$ 47,90</span>
-        </a>
-
-        <!-- Link de Recusa (Leva para o Downsell) -->
-        <div>
-          <a href="downsell.html" class="decline-link" id="upsellDeclineBtn">
-            Não, obrigado. Quero continuar apenas estudando pelo material.
-          </a>
-        </div>
-
         <!-- Imagem de entrega WhatsApp / E-mail -->
         <img src="images/7vjcHG3.png" alt="Recebimento imediato no WhatsApp e e-mail" class="delivery-badge-img">
       </div>
@@ -1375,37 +1361,11 @@
     </div>
   </footer>
 
-  <!-- Script simples para configurar os links de checkout do Upsell -->
+  <!-- HOTMART - Sales Funnel Widget Script -->
+  <!--- script load and setup --->
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
   <script>
-    (function(){
-      // CONFIGURE AQUI OS LINKS DO SEU UPSELL:
-      // 1. Link de Checkout do SemioLab por R$ 47,90 (Hotmart):
-      const upsellCheckoutUrl = 'https://pay.hotmart.com/E107509325C?off=oeh7ywy8'; 
-
-      // 2. Página de Downsell (R$ 27,90) caso o cliente recuse esta oferta:
-      const downsellPageUrl = 'downsell.html';
-
-      const acceptButtons = document.querySelectorAll('.upsell-accept-btn');
-      const declineButton = document.getElementById('upsellDeclineBtn');
-
-      acceptButtons.forEach(btn => {
-        btn.addEventListener('click', function(e){
-          if (upsellCheckoutUrl && upsellCheckoutUrl !== 'https://pay.hotmart.com/SEU_CODIGO_DE_UPSELL_AQUI' && upsellCheckoutUrl !== '#checkout-upsell') {
-            e.preventDefault();
-            window.location.href = upsellCheckoutUrl;
-          }
-        });
-      });
-
-      if (declineButton) {
-        declineButton.addEventListener('click', function(e){
-          if (downsellPageUrl) {
-            e.preventDefault();
-            window.location.href = downsellPageUrl;
-          }
-        });
-      }
-    })();
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
   </script>
 
 </body>

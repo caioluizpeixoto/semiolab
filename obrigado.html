@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Parabéns pela sua compra! Acesse aqui seus materiais de Semiologia Médica e simulador SemioLab.">
+  <title>Compra Confirmada — Semiologia Médica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #040816;
+      --bg2: #091534;
+      --navy: #10224a;
+      --surface: #112145;
+      --surface2: #183267;
+      --gold: #f0b84c;
+      --gold2: #ffe88b;
+      --gold3: #b57912;
+      --text: #fff9ee;
+      --muted: #decfb3;
+      --soft: #b7c5e3;
+      --stroke: rgba(255, 232, 139, 0.24);
+      --green: #29d466;
+      --green-dark: #12b352;
+      --green-glow: rgba(41, 212, 102, 0.35);
+      --cyan: #20e6dc;
+      --font-display: 'Instrument Serif', Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Container */
+    .container {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .container-sm {
+      width: min(840px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    /* Top Bar */
+    .top-status-bar {
+      background: linear-gradient(90deg, #10224a, #1d3368, #10224a);
+      border-bottom: 1px solid rgba(255, 232, 139, 0.28);
+      padding: 0.85rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .status-msg {
+      font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .status-msg .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      display: inline-block;
+      animation: pulseDot 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    /* Seletor sutil de visualização */
+    .plan-switcher-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.2rem auto 0;
+      gap: 0.5rem;
+    }
+
+    .plan-switch-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 232, 139, 0.2);
+      color: var(--soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .plan-switch-btn:hover {
+      background: rgba(255, 232, 139, 0.12);
+      color: #fff;
+    }
+
+    .plan-switch-btn.active {
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      color: #0b152d;
+      font-weight: 800;
+      border-color: var(--gold);
+      box-shadow: 0 4px 14px rgba(240, 184, 76, 0.3);
+    }
+
+    /* Hero da Página de Obrigado */
+    .hero-thanks {
+      padding: 3.5rem 0 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-thanks:before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(800px, 90vw);
+      height: 380px;
+      background: radial-gradient(ellipse at center, rgba(41, 212, 102, 0.15), rgba(32, 230, 220, 0.10) 40%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .success-icon-wrap {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(41, 212, 102, 0.2), rgba(32, 230, 220, 0.15));
+      border: 2px solid var(--green);
+      box-shadow: 0 0 35px var(--green-glow), 0 0 15px rgba(41, 212, 102, 0.5) inset;
+      animation: bounceIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      70% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-icon-wrap svg {
+      width: 46px;
+      height: 46px;
+      fill: none;
+      stroke: var(--green);
+      stroke-width: 3.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 2px 8px rgba(41, 212, 102, 0.6));
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(41, 212, 102, 0.4);
+      background: rgba(41, 212, 102, 0.1);
+      color: #86efac;
+      border-radius: 999px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+    }
+
+    .badge-status.badge-vip {
+      border-color: rgba(255, 232, 139, 0.4);
+      background: linear-gradient(90deg, rgba(240, 184, 76, 0.18), rgba(255, 232, 139, 0.1));
+      color: var(--gold2);
+      box-shadow: 0 0 20px rgba(240, 184, 76, 0.2);
+    }
+
+    .thanks-title {
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      text-wrap: balance;
+    }
+
+    .thanks-title em {
+      font-family: var(--font-display);
+      font-weight: 400;
+      color: var(--gold2);
+      font-style: italic;
+      text-shadow: 0 0 28px rgba(214, 168, 79, 0.35);
+    }
+
+    .thanks-sub {
+      font-size: clamp(1.05rem, 2.6vw, 1.22rem);
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Card Principal de Instruções */
+    .instruction-card {
+      background: linear-gradient(180deg, rgba(17, 33, 69, 0.85) 0%, rgba(9, 21, 52, 0.95) 100%);
+      border: 1px solid rgba(255, 232, 139, 0.24);
+      border-radius: 1.5rem;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      margin: 2.2rem auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+      position: relative;
+      z-index: 2;
+    }
+
+    .instruction-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 232, 139, 0.15);
+    }
+
+    .instruction-header h2 {
+      font-size: clamp(1.4rem, 3.2vw, 1.85rem);
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .instruction-header p {
+      color: var(--soft);
+      font-size: 1rem;
+    }
+
+    /* Grid de Passos */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .step-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.1rem;
+      padding: 1.4rem;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 232, 139, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold3));
+      color: #0b152d;
+      font-weight: 900;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 4px 12px rgba(240, 184, 76, 0.35);
+    }
+
+    .step-item h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-item p {
+      color: var(--soft);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    /* Seção de Produtos Adquiridos */
+    .products-section-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--gold2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .product-card {
+      background: rgba(16, 34, 74, 0.7);
+      border: 1px solid rgba(255, 232, 139, 0.18);
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      transition: all 0.25s ease;
+    }
+
+    .product-card:hover {
+      border-color: rgba(255, 232, 139, 0.4);
+      background: rgba(24, 50, 103, 0.6);
+    }
+
+    .product-card.card-vip {
+      border: 1px solid rgba(32, 230, 220, 0.4);
+      background: linear-gradient(135deg, rgba(16, 34, 74, 0.85), rgba(24, 50, 103, 0.7));
+      box-shadow: 0 8px 30px rgba(32, 230, 220, 0.12);
+    }
+
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      flex: 1 1 300px;
+    }
+
+    .product-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .product-meta h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+
+    .product-meta p {
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
+    .product-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #86efac;
+      background: rgba(41, 212, 102, 0.15);
+      border: 1px solid rgba(41, 212, 102, 0.3);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      margin-top: 0.4rem;
+    }
+
+    .btn-access {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(90deg, #29d466 0%, #12b352 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(41, 212, 102, 0.3);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-access:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(41, 212, 102, 0.45);
+    }
+
+    .btn-access-vip {
+      background: linear-gradient(90deg, #20e6dc 0%, #0ea5e9 100%);
+      color: #040816;
+      box-shadow: 0 10px 24px rgba(32, 230, 220, 0.3);
+    }
+
+    .btn-access-vip:hover {
+      box-shadow: 0 14px 30px rgba(32, 230, 220, 0.5);
+    }
+
+    /* Box de Upsell Posterior (Apenas para quem recusou o Downsell) */
+    .missed-upsell-box {
+      background: linear-gradient(180deg, rgba(240, 184, 76, 0.12), rgba(255, 232, 139, 0.05));
+      border: 1px dashed rgba(240, 184, 76, 0.4);
+      border-radius: 1.2rem;
+      padding: 1.6rem;
+      text-align: center;
+      margin-top: 1.8rem;
+    }
+
+    .missed-upsell-box h4 {
+      color: var(--gold2);
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    .missed-upsell-box p {
+      color: var(--text);
+      font-size: 0.95rem;
+      max-width: 580px;
+      margin: 0 auto 1rem;
+    }
+
+    .btn-rescue-offer {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      color: #0a1128;
+      font-weight: 800;
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-rescue-offer:hover {
+      transform: scale(1.03);
+    }
+
+    /* Suporte WhatsApp */
+    .support-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.2rem;
+      padding: 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .support-text h4 {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+
+    .support-text p {
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25d366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+    }
+
+    /* Selo de Entrega */
+    .delivery-badge-center {
+      display: block;
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      margin: 1.8rem auto 0;
+      opacity: 0.92;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(255, 232, 139, 0.15);
+      background: #02050e;
+      padding: 2.2rem 0;
+      text-align: center;
+      color: var(--soft);
+      font-size: 0.88rem;
+      margin-top: auto;
+    }
+
+    /* Animação e Utilitários */
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      .product-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-access {
+        width: 100%;
+      }
+      .support-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra Superior -->
+  <div class="top-status-bar">
+    <div class="status-msg">
+      <span class="dot"></span>
+      <span>TRANSAÇÃO APROVADA COM SUCESSO • ACESSO LIBERADO</span>
+    </div>
+  </div>
+
+  <main class="container-sm">
+
+    <!-- Seletor Discreto de Modo (Permite alternar entre os estados para teste ou caso o cliente troque de dispositivo) -->
+    <div class="plan-switcher-wrap" id="planSwitcher">
+      <button class="plan-switch-btn" id="btnModeNormal" onclick="setMode('normal')">
+        Apenas Material Principal
+      </button>
+      <button class="plan-switch-btn active" id="btnModeVip" onclick="setMode('vip')">
+        Com SemioLab Incluso (VIP)
+      </button>
+    </div>
+
+    <!-- Hero de Boas-Vindas -->
+    <section class="hero-thanks">
+      
+      <!-- Ícone Animado de Sucesso -->
+      <div class="success-icon-wrap">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <!-- Badge Dinâmico de Confirmação -->
+      <div id="badgeContainer">
+        <div class="badge-status badge-vip" id="badgeVip">
+          ✨ MATERIAL COMPLETO + SIMULADOR SEMIOLAB INCLUSO
+        </div>
+        <div class="badge-status hidden" id="badgeNormal">
+          📚 MATERIAL COMPLETO DE SEMIOLOGIA MÉDICA
+        </div>
+      </div>
+
+      <h1 class="thanks-title" id="mainTitle">
+        Parabéns! Seu acesso está <em>100% liberado</em>.
+      </h1>
+
+      <p class="thanks-sub" id="mainSubtitle">
+        Você acabou de tomar uma das decisões mais importantes para a sua segurança diagnóstica e prática médica.
+      </p>
+
+    </section>
+
+    <!-- Card de Instruções e Produtos -->
+    <div class="instruction-card">
+
+      <div class="instruction-header">
+        <h2>Como acessar seus conteúdos agora</h2>
+        <p>Siga os 3 passos simples abaixo para começar seu estudo imediatamente:</p>
+      </div>
+
+      <!-- 3 Passos Imediatos -->
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h3>Abra seu E-mail / WhatsApp</h3>
+          <p>Enviamos os links de acesso oficiais para o seu e-mail de compra e telefone cadastrado na Hotmart.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h3>Remetente Hotmart</h3>
+          <p>Procure por um e-mail com o assunto <strong>"Seu acesso ao material chegou"</strong> ou similar.</p>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h3>Crie sua Senha</h3>
+          <p>Clique no link recebido para criar sua senha segura e acessar a área de membros imediatamente.</p>
+        </div>
+      </div>
+
+      <!-- Seção de Produtos Adquiridos -->
+      <div class="products-section-title">
+        <span>📦 SEUS PRODUTOS DISPONÍVEIS:</span>
+      </div>
+
+      <div class="products-list">
+
+        <!-- Produto 1: Material Principal de Semiologia -->
+        <div class="product-card">
+          <div class="product-info">
+            <div class="product-icon">📖</div>
+            <div class="product-meta">
+              <h4>Material Completo de Semiologia Médica</h4>
+              <p>Mapas Mentais, Resumos Práticos, OSCE e Guia de Exame Físico.</p>
+              <div class="product-status-pill">
+                🟢 Acesso Imediato Liberado
+              </div>
+            </div>
+          </div>
+          <a href="https://consumer.hotmart.com/" target="_blank" rel="noopener noreferrer" class="btn-access">
+            <span>Acessar Material</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Produto 2: SemioLab (Exibido quando comprou Upsell ou Downsell) -->
+        <div class="product-card card-vip" id="cardSemiolab">
+          <div class="product-info">
+            <div class="product-icon">🧠</div>
+            <div class="product-meta">
+              <h4>Simulador SemioLab — Casos Clínicos Interativos</h4>
+              <p>Treine anamnese, exame físico e hipóteses com pacientes simulados.</p>
+              <div class="product-status-pill" style="color: #67e8f9; background: rgba(32, 230, 220, 0.15); border-color: rgba(32, 230, 220, 0.3);">
+                ⚡ Acesso VIP Ativado
+              </div>
+            </div>
+          </div>
+          <a href="https://consumer.hotmart.com/" target="_blank" rel="noopener noreferrer" class="btn-access btn-access-vip">
+            <span>Acessar SemioLab</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Box de Oportunidade Perdida (Exibido apenas quando o cliente recusou o Downsell) -->
+      <div class="missed-upsell-box hidden" id="boxMissedOffer">
+        <h4>💡 Sentiu falta do Simulador Prático?</h4>
+        <p>
+          Se você mudou de ideia e quer adicionar o <strong>SemioLab</strong> à sua conta com a condição especial exclusiva que viu nesta página, você ainda pode solicitar liberação pelo nosso suporte.
+        </p>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Acabei%20de%20comprar%20o%20Material%20de%20Semiologia%20e%20gostaria%20de%20ativar%20o%20SemioLab." target="_blank" rel="noopener noreferrer" class="btn-rescue-offer">
+          <span>💬 Quero ativar o SemioLab com desconto</span>
+        </a>
+      </div>
+
+      <!-- Card de Suporte WhatsApp -->
+      <div class="support-card">
+        <div class="support-text">
+          <h4>Precisa de alguma ajuda com o seu acesso?</h4>
+          <p>Nossa equipe médica de suporte está pronta para te atender no WhatsApp.</p>
+        </div>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20meu%20acesso%20ao%20material%20de%20Semiologia." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <span>💬 Falar com Suporte</span>
+        </a>
+      </div>
+
+      <!-- Imagem de Recebimento no WhatsApp / E-mail -->
+      <img src="images/7vjcHG3.png" alt="Recebimento imediato no WhatsApp e E-mail" class="delivery-badge-center">
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© Semiologia Médica — Todos os direitos reservados.</p>
+      <p style="font-size: 0.8rem; color: #64748b; margin-top: 0.3rem;">
+        Seu pagamento e dados são processados com segurança de ponta a ponta pela Hotmart.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lógica Dinâmica da Página de Obrigado -->
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    function setMode(mode) {
+      const badgeVip = document.getElementById('badgeVip');
+      const badgeNormal = document.getElementById('badgeNormal');
+      const cardSemiolab = document.getElementById('cardSemiolab');
+      const boxMissedOffer = document.getElementById('boxMissedOffer');
+      const btnModeNormal = document.getElementById('btnModeNormal');
+      const btnModeVip = document.getElementById('btnModeVip');
+      const mainSubtitle = document.getElementById('mainSubtitle');
+
+      if (mode === 'normal') {
+        // Modo: Apenas Material Principal (Recusou o Downsell)
+        badgeVip.classList.add('hidden');
+        badgeNormal.classList.remove('hidden');
+        cardSemiolab.classList.add('hidden');
+        boxMissedOffer.classList.remove('hidden');
+
+        btnModeNormal.classList.add('active');
+        btnModeVip.classList.remove('active');
+
+        mainSubtitle.innerHTML = 'Seu acesso ao <strong>Material Completo de Semiologia Médica</strong> já foi liberado e está a caminho do seu e-mail e WhatsApp.';
+      } else {
+        // Modo: VIP com SemioLab (Comprou Upsell 1 ou Downsell)
+        badgeVip.classList.remove('hidden');
+        badgeNormal.classList.add('hidden');
+        cardSemiolab.classList.remove('hidden');
+        boxMissedOffer.classList.add('hidden');
+
+        btnModeVip.classList.add('active');
+        btnModeNormal.classList.remove('active');
+
+        mainSubtitle.innerHTML = 'Seu acesso ao <strong>Material Completo de Semiologia</strong> e ao <strong>Simulador SemioLab</strong> está 100% liberado e disponível.';
+      }
+    }
+
+    // Identificação Automática via Parâmetros de URL:
+    // Exemplo: obrigado.html?semiolab=1 (ou vip=1, upsell=1, downsell=1) -> Modo VIP
+    // Exemplo: obrigado.html ou obrigado.html?semiolab=0 -> Modo Normal
+    (function initThankYouPage(){
+      const semiolabParam = getQueryParam('semiolab');
+      const vipParam = getQueryParam('vip');
+      const upsellParam = getQueryParam('upsell');
+      const downsellParam = getQueryParam('downsell');
+
+      // Se passou parâmetro VIP ou pathname contém obrigado-semiolab:
+      if (semiolabParam === '1' || semiolabParam === 'true' || vipParam === '1' || upsellParam === '1' || downsellParam === '1' || window.location.pathname.includes('obrigado-semiolab')) {
+        setMode('vip');
+      } else {
+        // Padrão do obrigado.html: Apenas Material Principal (fluxo pós-recusa de downsell)
+        setMode('normal');
+      }
+    })();
+  </script>
+
+</body>
+</html>

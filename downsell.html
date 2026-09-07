@@ -184,8 +184,8 @@
     }
 
     .hero-mockup-wrapper {
-      width: min(100%, 780px);
-      margin: 1.8rem auto 2.2rem;
+      width: min(100%, 640px);
+      margin: 1.5rem auto 2rem;
       position: relative;
       display: flex;
       justify-content: center;
@@ -195,22 +195,22 @@
     .hero-mockup-wrapper:before {
       content: '';
       position: absolute;
-      width: 90%;
-      height: 75%;
-      background: radial-gradient(ellipse at center, rgba(32, 230, 220, 0.22), rgba(240, 184, 76, 0.12) 50%, transparent 75%);
-      filter: blur(40px);
+      width: 80%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(32, 230, 220, 0.28), rgba(240, 184, 76, 0.15) 50%, transparent 75%);
+      filter: blur(45px);
       pointer-events: none;
       z-index: 1;
     }
 
     .hero-mockup-img {
       width: 100%;
+      max-width: 580px;
       height: auto;
       display: block;
       position: relative;
       z-index: 2;
-      filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.65));
-      border-radius: 1.2rem;
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.75));
     }
 
     .lead-text {
@@ -572,7 +572,7 @@
 
       <!-- Mockup do SemioLab nos Dispositivos -->
       <div class="hero-mockup-wrapper">
-        <img src="images/semiolab-app-mockup.jpg" alt="Simulador de Casos Clínicos SemioLab no celular" class="hero-mockup-img" loading="eager">
+        <img src="images/semiolab-app-mockup.png" alt="Simulador de Casos Clínicos SemioLab no celular" class="hero-mockup-img" loading="eager">
       </div>
 
       <p class="lead-text">
@@ -690,18 +690,9 @@
           Essa é a sua última chance de adquirir o simulador prático do SemioLab por esse valor simbólico. Esta oferta não será exibida novamente após você fechar ou sair.
         </p>
 
-        <!-- CTA Principal do Downsell -->
-        <a href="https://pay.hotmart.com/E107509325C?off=lkjqy2ye" class="btn btn-green btn-pulse downsell-accept-btn" id="downsellAcceptBtn">
-          <span class="btn-main-text">🟢 SIM! QUERO O SEMIOLAB POR APENAS R$ 27,90</span>
-          <span class="btn-sub-text">Aproveitar desconto final de R$ 27,90</span>
-        </a>
-
-        <!-- Link de Recusa Definitiva -->
-        <div>
-          <a href="#obrigado" class="decline-link" id="downsellDeclineBtn">
-            Não, obrigado. Prefiro abrir mão definitivamente do SemioLab e continuar apenas com o material teórico.
-          </a>
-        </div>
+        <!-- HOTMART - Sales Funnel Widget (1-Clique) -->
+        <!--- sales funnel container --->
+        <div id="hotmart-sales-funnel" style="margin: 1.5rem auto; min-height: 80px;"></div>
 
         <!-- Imagem de entrega WhatsApp / E-mail -->
         <img src="images/7vjcHG3.png" alt="Recebimento imediato no WhatsApp e e-mail" class="delivery-badge-img">
@@ -717,37 +708,11 @@
     </div>
   </footer>
 
-  <!-- Script simples para configurar o link de checkout do Downsell -->
+  <!-- HOTMART - Sales Funnel Widget Script -->
+  <!--- script load and setup --->
+  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
   <script>
-    (function(){
-      // CONFIGURE AQUI OS LINKS DO SEU DOWNSELL:
-      // 1. Link de Checkout do SemioLab por R$ 27,90 (Hotmart):
-      const downsellCheckoutUrl = 'https://pay.hotmart.com/E107509325C?off=lkjqy2ye'; 
-
-      // 2. Link de Redirecionamento caso recuse (Página de obrigado ou entrega):
-      const thankYouPageUrl = '#obrigado';
-
-      const acceptBtn = document.getElementById('downsellAcceptBtn');
-      const declineBtn = document.getElementById('downsellDeclineBtn');
-
-      if (acceptBtn) {
-        acceptBtn.addEventListener('click', function(e){
-          if (downsellCheckoutUrl && downsellCheckoutUrl !== 'https://pay.hotmart.com/SEU_CODIGO_DE_DOWNSELL_AQUI' && downsellCheckoutUrl !== '#checkout-downsell') {
-            e.preventDefault();
-            window.location.href = downsellCheckoutUrl;
-          }
-        });
-      }
-
-      if (declineBtn) {
-        declineBtn.addEventListener('click', function(e){
-          if (thankYouPageUrl && thankYouPageUrl !== '#obrigado') {
-            e.preventDefault();
-            window.location.href = thankYouPageUrl;
-          }
-        });
-      }
-    })();
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
   </script>
 
 </body>
